@@ -1,3 +1,5 @@
+using System.Net.Mail;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire client integrations.
@@ -36,6 +38,10 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast");
 
 app.MapDefaultEndpoints();
+
+var mail = new MailMessage("test@example.com", "jeff@example.com", "Test", "Test");
+var client = new SmtpClient("mailhog-smtp", 1025);
+client.Send(mail);
 
 app.Run();
 
