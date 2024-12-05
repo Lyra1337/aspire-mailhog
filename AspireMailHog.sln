@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireMailHog.AppHost", "AspireMailHog.AppHost\AspireMailHog.AppHost.csproj", "{D63988BC-6109-43BF-BCA2-F227BCB19F4C}"
 EndProject
@@ -9,6 +9,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireMailHog.ApiService", "AspireMailHog.ApiService\AspireMailHog.ApiService.csproj", "{37B45146-15D2-4A65-BD00-4A7A980DE2B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireMailHog.Web", "AspireMailHog.Web\AspireMailHog.Web.csproj", "{21E77FF7-B75B-437F-8B91-717E23F9C3C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailHogResource", "MailHogResource\MailHogResource.csproj", "{DC52113E-DC39-4FC6-B382-8BB1A829552B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{21E77FF7-B75B-437F-8B91-717E23F9C3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21E77FF7-B75B-437F-8B91-717E23F9C3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21E77FF7-B75B-437F-8B91-717E23F9C3C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC52113E-DC39-4FC6-B382-8BB1A829552B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC52113E-DC39-4FC6-B382-8BB1A829552B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC52113E-DC39-4FC6-B382-8BB1A829552B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC52113E-DC39-4FC6-B382-8BB1A829552B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

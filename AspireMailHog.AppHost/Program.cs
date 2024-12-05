@@ -1,20 +1,10 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var mailServer = builder.AddContainer("mailhog", "mailhog/mailhog")
-    .WithEndpoint(
-        name: "mailhog-smtp",
-        port: 1025,
-        targetPort: 1025
-    )
-    .WithHttpEndpoint(
-        name: "mailhog-web",
-        port: 8025,
-        targetPort: 8025
-    );
+var mailHog = builder.AddMailHog("mailhog");
 
 var apiService = builder.AddProject<Projects.AspireMailHog_ApiService>("apiservice")
-    .WithReference(mailServer.GetEndpoint("mailhog-smtp"))
-    .WaitFor(mailServer);
+    .WithReference(mailHog)
+    .WaitFor(mailHog);
 
 builder.AddProject<Projects.AspireMailHog_Web>("webfrontend")
     .WithExternalHttpEndpoints()
