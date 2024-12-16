@@ -15,16 +15,15 @@ public sealed class MailHogResource(string name) : ContainerResource(name), IRes
     // An EndpointReference is a core .NET Aspire type used for keeping
     // track of endpoint details in expressions. Simple literal values cannot
     // be used because endpoints are not known until containers are launched.
-    private EndpointReference? _smtpReference;
+    private EndpointReference? smtpReference;
 
-    public EndpointReference SmtpEndpoint =>
-        _smtpReference ??= new(this, SmtpEndpointName);
+    public EndpointReference SmtpEndpoint => this.smtpReference ??= new(this, SmtpEndpointName);
 
     // Required property on IResourceWithConnectionString. Represents a connection
     // string that applications can use to access the MailHog server. In this case
     // the connection string is composed of the SmtpEndpoint endpoint reference.
     public ReferenceExpression ConnectionStringExpression =>
         ReferenceExpression.Create(
-            $"smtp://{SmtpEndpoint.Property(EndpointProperty.Host)}:{SmtpEndpoint.Property(EndpointProperty.Port)}"
+            handler: $"smtp://{this.SmtpEndpoint.Property(EndpointProperty.Host)}:{this.SmtpEndpoint.Property(EndpointProperty.Port)}"
         );
 }
