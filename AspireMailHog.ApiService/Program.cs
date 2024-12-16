@@ -40,7 +40,14 @@ app.MapGet("/weatherforecast", () =>
 app.MapDefaultEndpoints();
 
 var mail = new MailMessage("test@example.com", "jeff@example.com", "Test", "Test");
-var client = new SmtpClient("mailhog-smtp", 1025);
+
+// Get the correct connection string
+var mailServerConnectionUri = new Uri(app.Configuration.GetConnectionString("mailhog") ?? throw new InvalidOperationException("Missing required connection string 'mailhog' or the value provided is not a valid URI."));
+
+// extract host and port from connection string
+var client = new SmtpClient(mailServerConnectionUri.Host, mailServerConnectionUri.Port);
+
+// send the mail
 client.Send(mail);
 
 app.Run();
